@@ -1,0 +1,76 @@
+﻿<Window x:Class="Super_Snake.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Super_Snake"
+        mc:Ignorable="d"
+        Title="Settings" HorizontalAlignment="Center" Height="800" Width="1200" ResizeMode="NoResize">
+    <Grid Background="#FF272727">
+        <ScrollViewer >
+            <Canvas Height="1700">
+                <Grid Name="XZ" Height="770" Width="700" Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas x:Name="NeuralNetCanvas">
+
+                    </Canvas>
+                </Grid>
+                <Label Content="Нейронная сеть" FontSize="35" Foreground="#FF90671E" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="22" />
+                <Label Content="Кол-во слоёв:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="108" />
+                <Label Name="LayersText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="1014" Margin="0" Canvas.Top="108" />
+                <Button x:Name="LayersUp" Content="+" Click="LayersUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="116"/>
+                <Button x:Name="LayersDown" Content="-" Click="LayersDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="116"/>
+                <Label Content="Кол-во нейронов:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="174" />
+                <Label Name="NeuronsText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="1014" Margin="0" Canvas.Top="174" />
+                <Button x:Name="NeuronsUp" Content="+" Click="NeuronsUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="182"/>
+                <Button x:Name="NeuronsDown" Content="-" Click="NeuronsDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="182"/>
+                <Label Content="Биас:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="234" />
+                <CheckBox x:Name="BiasCheck" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="827" Canvas.Top="252"/>
+
+                <Label Content="Обзор змеи" FontSize="35" Foreground="#FF90671E" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="305" />
+                <Label Content="8 направлений:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="386" />
+                <CheckBox x:Name="EightDirectionsCheck" Unchecked="EightDirections_Unchecked" Checked="EightDirections_Checked" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="1062" Canvas.Top="404"/>
+                <Label Content="Бесконечный обзор:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="445" />
+                <CheckBox x:Name="UnlimitedVisionCheck" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="1062" Canvas.Top="464"/>
+                <Label Content="Синус угла:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="504" />
+                <CheckBox x:Name="AngleCheck" Unchecked="Angle_Unchecked" Checked="Angle_Checked" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="1062" Canvas.Top="520"/>
+                <Label Content="Голова и хвост:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="563" />
+                <CheckBox x:Name="headTaleCheck" Unchecked="HeadTale_Unchecked" Checked="HeadTale_Checked" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="1062" Canvas.Top="581"/>
+
+                <Label Content="Остальные параметры:" FontSize="35" Foreground="#FF90671E" Style="{DynamicResource SnakeLable}" Canvas.Left="409" Margin="0" Canvas.Top="792" />
+
+                <Label Content="Функция активации:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="55" Margin="0" Canvas.Top="904" />
+                <ComboBox Name="ActivationType" FontSize="30" Width="318" Height="46" Style="{DynamicResource SnakeComboBox}" Canvas.Left="55" Canvas.Top="964" ></ComboBox>
+                <Label Content="Тип скрещивания:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="55" Margin="0" Canvas.Top="1056" />
+                <ComboBox Name="CrossoverType" FontSize="30" Width="318" Height="46" Style="{DynamicResource SnakeComboBox}" Canvas.Left="55" Canvas.Top="1116" ></ComboBox>
+                <Label Content="Тип мутации:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="55" Margin="0" Canvas.Top="1202" />
+                <ComboBox Name="MutationType" FontSize="30" Width="318" Height="46" Style="{DynamicResource SnakeComboBox}" Canvas.Left="55" Canvas.Top="1262" ></ComboBox>
+                <Label Content="Тип селекции:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="55" Margin="0" Canvas.Top="1346" />
+                <ComboBox Name="SelectionType" FontSize="30" Width="318" Height="46" Style="{DynamicResource SnakeComboBox}" Canvas.Left="55" Canvas.Top="1406" ></ComboBox>
+
+                <Label Content="Размер популяции:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="611" Margin="0" Canvas.Top="904" />
+                <Label Name="PopulationLengthText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="957" Margin="0" Canvas.Top="904" />
+                <Button Content="+" Click="PopulationUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="912"/>
+                <Button Content="-" Click="PopulationDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="912"/>
+                <Label Content="Энергия змеи:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="611" Margin="0" Canvas.Top="970" />
+                <Label Name="EnergyText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="957" Margin="0" Canvas.Top="970" />
+                <Button Content="+" Click="EnergyUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="978"/>
+                <Button Content="-" Click="EnergyDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="978"/>
+                <Label Content="Награда за яблоко:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="611" Margin="0" Canvas.Top="1034" />
+                <Label Name="RewardText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="957" Margin="0" Canvas.Top="1034" />
+                <Button Content="+" Click="RewardUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="1042"/>
+                <Button Content="-" Click="RewardDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="1042"/>
+                <Label Content="Вероятность мутации:" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="611" Margin="0" Canvas.Top="1098" />
+                <Label Name="MutationText" Content="0" FontSize="30" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="958" Margin="0" Canvas.Top="1098" />
+                <Button Content="+" Click="MutationUp_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1062" Canvas.Top="1106"/>
+                <Button Content="-" Click="MutationDown_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="40" Height="40" Style="{DynamicResource SnakeButton}" Canvas.Left="1107" Canvas.Top="1106"/>
+
+                <Button Content="Применить" Click="Submit_Click" FontSize="35" Foreground="White" Background="#FF53914D" Width="226" Height="100" Style="{DynamicResource SnakeButton}" Canvas.Left="240" Canvas.Top="1574"/>
+                <Button Content="Отмена" Click="Close_Click" FontSize="35" Foreground="White" Background="#FFB44217" Width="226" Height="100" Style="{DynamicResource SnakeButton}" Canvas.Left="721" Canvas.Top="1574"/>
+
+                <Label Name="Alert1" Visibility="Hidden" Content="УЖЕ СОЗДАННУЮ СЕТЬ" FontSize="30" Foreground="Red" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="617" />
+                <Label Name="Alert2" Visibility="Hidden" Content="МЕНЯТЬ НЕЛЬЗЯ!!!" FontSize="30" Foreground="Red" Style="{DynamicResource SnakeLable}" Canvas.Left="731" Margin="0" Canvas.Top="671" />
+            </Canvas>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

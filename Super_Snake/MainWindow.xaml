@@ -1,0 +1,44 @@
+﻿<Window x:Class="Super_Snake.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Super_Snake"
+        mc:Ignorable="d"
+        Title="Super_Snake" HorizontalAlignment="Center" SizeToContent="Height" Width="1600" ResizeMode="NoResize">
+    <Grid Background="#FF272727" Height="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+
+        <Canvas Grid.Column="0">
+            <Label Content="Файл:" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="10" Margin="0" Canvas.Top="48"/>
+            <TextBox Name="FileText" IsReadOnly="True" FontSize="25" BorderBrush="White" Foreground="White" Background="#FF5B5B5B" Style="{DynamicResource SnakeTextBox}" Canvas.Left="137" Margin="0" Canvas.Top="56" Height="54" Width="227"/>
+            <Label Content="Поколение:" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="10" Margin="0" Canvas.Top="146"/>
+            <Label Content="0" Name="GenerationText" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="229" Margin="0" Canvas.Top="146"/>
+            <Label Content="Лучший счёт:" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="10" Margin="0" Canvas.Top="246"/>
+            <Label Content="0" Name="BestScoreText" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="260" Margin="0" Canvas.Top="246"/>
+            <Label Content="Текущий счёт:" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="10" Margin="0" Canvas.Top="355"/>
+            <Label Content="0" Name="CurrentScoreText" FontSize="35" Foreground="White" Style="{DynamicResource SnakeLable}" Canvas.Left="271" Margin="0" Canvas.Top="355"/>
+            <Button Name="SettingsButton" Content="Настройки" Click="Settings_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="200" Height="100" Style="{DynamicResource SnakeButton}" Canvas.Left="88" Canvas.Top="638"/>
+        </Canvas>
+
+        <Canvas x:Name="GameField" Grid.Column="1" Height="800" Width="800" Background="Black">
+
+        </Canvas>
+
+        <Canvas Grid.Column="2">
+            <Button Content="Создать" Click="Create_Click" FontSize="20" Foreground="White" Background="#FF5B5B5B" Width="100" Height="50" Style="{DynamicResource SnakeButton}" Margin="28,37,269,684"></Button>
+            <Button Content="Открыть" Click="Open_Click" FontSize="20" Foreground="White" Background="#FF5B5B5B" Width="100" Height="50" Style="{DynamicResource SnakeButton}" Margin="141,37,156,684"/>
+            <Button Content="Сохранить" Click="Save_Click" FontSize="20" Foreground="White" Background="#FF5B5B5B" Width="120" Height="50" Style="{DynamicResource SnakeButton}" Canvas.Left="255" Canvas.Top="37"/>
+            <Button Content="Играть" Click="Play_Click" FontSize="35" Foreground="White" Background="#FF53914D" Width="150" Height="80" Style="{DynamicResource SnakeButton}" Canvas.Left="28" Canvas.Top="137"/>
+            <Button Content="Стоп" Click="Stop_Click" FontSize="35" Foreground="White" Background="#FFB44217" Width="150" Height="80" Style="{DynamicResource SnakeButton}" Canvas.Left="225" Canvas.Top="137"/>
+            <CheckBox Name="ReplayCheck" Content="Режим реплея" Unchecked="Replay_Unchecked" Checked="Replay_Checked" Style="{DynamicResource SnakeCheckBox}" Canvas.Left="28" Canvas.Top="269" ></CheckBox>
+            <ComboBox Name="Replays" IsEnabled="False" Width="250" Height="45" FontSize="30" Style="{DynamicResource SnakeComboBox}" Canvas.Left="28" Canvas.Top="338" ></ComboBox>
+            <Button Content="График" Click="Chart_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="200" Height="100" Style="{DynamicResource SnakeButton}" Canvas.Left="106" Canvas.Top="512"/>
+            <Button Content="Выход" Click="Exit_Click" FontSize="35" Foreground="White" Background="#FF90671E" Width="200" Height="100" Style="{DynamicResource SnakeButton}" Canvas.Left="106" Canvas.Top="643"/>
+        </Canvas>
+    </Grid>
+</Window>
